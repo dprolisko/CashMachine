@@ -1,3 +1,6 @@
+package CashMachine.Project;
+
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,7 +11,7 @@ public class CurrencyManipulatorFactory {
     }
 
     public static CurrencyManipulator getManipulatorByCurrencyCode (String CurrencyCode) {
-        CurrencyCode = CurrencyCode.toLowerCase();
+        CurrencyCode = CurrencyCode.toUpperCase();
         if (!hashMap.containsKey(CurrencyCode)){
             CurrencyManipulator manipulator = new CurrencyManipulator(CurrencyCode);
             hashMap.put(manipulator.getCurrencyCode(),manipulator);
@@ -16,5 +19,8 @@ public class CurrencyManipulatorFactory {
         }
         return hashMap.get(CurrencyCode);
 
+    }
+    public static Collection <CurrencyManipulator> getAll (){
+        return hashMap.values();
     }
 }

@@ -1,3 +1,8 @@
+package CashMachine.Project;
+
+
+import CashMachine.Project.Operation;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -50,6 +55,21 @@ public class ConsoleHelper {
 
                 }
                 return array;
+            }
+        }
+    }
+    public static Operation askOperation() {
+        while (true) {
+            ConsoleHelper.WriteMessage("Please choose an operation desired or type 'EXIT' for exiting");
+            ConsoleHelper.WriteMessage("\t 1 - operation.INFO");
+            ConsoleHelper.WriteMessage("\t 2 - operation.DEPOSIT");
+            ConsoleHelper.WriteMessage("\t 3 - operation.WITHDRAW");
+            ConsoleHelper.WriteMessage("\t 4 - operation.EXIT");
+            Integer i = Integer.parseInt(ConsoleHelper.ReadString().trim());
+            try {
+                return Operation.getAllowableOperationByOrdinal(i);
+            } catch (IllegalArgumentException e) {
+                ConsoleHelper.WriteMessage("Please specify valid data.");
             }
         }
     }

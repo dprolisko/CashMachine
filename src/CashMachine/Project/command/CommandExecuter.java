@@ -1,6 +1,6 @@
-package command;
+package CashMachine.Project.command;
 
-import enums.Operation;
+import CashMachine.Project.Operation;
 
 import java.util.HashMap;
 import java.util.Map;
